@@ -22,7 +22,7 @@ jobs:
     
     - name: Set image tag
       id: meta
-      run: echo "tags=${{ github.sha }}" >> $GITHUB_OUTPUT
+      run: echo "tags=$(date +%Y%m%d-%H%M%S)" >> $GITHUB_OUTPUT
     
     - name: Azure Login
       uses: azure/login@v1
@@ -50,6 +50,9 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - name: Install kubelogin
+      run: az aks install-cli  
     
     - name: Set AKS context
       run: |
