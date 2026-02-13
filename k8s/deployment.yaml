@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restaurant-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: restaurant-app
+  template:
+    metadata:
+      labels:
+        app: restaurant-app
+    spec:
+      containers:
+      - name: restaurant-app
+        image: saanvikit.azurecr.io/restaurant-app:IMAGE_TAG
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: restaurant-app-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: restaurant-app
+  ports:
+  - port: 80
+    targetPort: 8080
