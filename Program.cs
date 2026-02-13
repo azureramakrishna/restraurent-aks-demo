@@ -17,16 +17,17 @@ var menu = new[]
     new MenuItem("Naan Bread", "Soft leavened flatbread from tandoor", 3.99m, "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400")
 };
 
-var navBar = @"
+var navBar = """
     <nav style='background: rgba(0,0,0,0.3); padding: 15px 0; margin-bottom: 20px;'>
         <div style='max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 30px;'>
             <a href='/' style='color: white; text-decoration: none; font-size: 18px; font-weight: 500;'>Menu</a>
             <a href='/about' style='color: white; text-decoration: none; font-size: 18px; font-weight: 500;'>About Us</a>
             <a href='/contact' style='color: white; text-decoration: none; font-size: 18px; font-weight: 500;'>Contact</a>
         </div>
-    </nav>";
+    </nav>
+""";
 
-var commonStyles = @"
+var commonStyles = """
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
@@ -47,60 +48,61 @@ var commonStyles = @"
         p { color: #666; line-height: 1.8; margin-bottom: 15px; }
         .contact-info { margin: 20px 0; }
         .contact-info p { font-size: 16px; margin: 10px 0; }
-    </style>";
+    </style>
+""";
 
-app.MapGet("/", () => Results.Content($@"
+app.MapGet("/", () => Results.Content($$"""
 <!DOCTYPE html>
 <html>
 <head>
     <title>Maharaja's Palace - Menu</title>
     <meta charset="UTF-8">
-    {commonStyles}
+    {{commonStyles}}
 </head>
 <body>
     <div class='container'>
         <header>
-            <h1>👑 Maharaja's Palace 👑</h1>
+            <h1>&#128081; Maharaja's Palace &#128081;</h1>
             <p class='tagline'>Authentic Indian Cuisine</p>
         </header>
-        {navBar}
+        {{navBar}}
         <div class='menu-grid' id='menu'></div>
     </div>
     <script>
         fetch('/api/menu')
             .then(r => r.json())
-            .then(items => {{
+            .then(items => {
                 document.getElementById('menu').innerHTML = items.map(item => `
                     <div class='menu-item'>
-                        <img src='${{item.image}}' alt='${{item.name}}'>
+                        <img src='${item.image}' alt='${item.name}'>
                         <div class='item-content'>
-                            <div class='name'>${{item.name}}</div>
-                            <div class='description'>${{item.description}}</div>
-                            <div class='price'>Rs. ${{(item.price * 80).toFixed(0)}}</div>
+                            <div class='name'>${item.name}</div>
+                            <div class='description'>${item.description}</div>
+                            <div class='price'>Rs. ${(item.price * 80).toFixed(0)}</div>
                         </div>
                     </div>
                 `).join('');
-            }});
+            });
     </script>
 </body>
 </html>
-", "text/html"));
+""", "text/html"));
 
-app.MapGet("/about", () => Results.Content($@"
+app.MapGet("/about", () => Results.Content($$"""
 <!DOCTYPE html>
 <html>
 <head>
     <title>Maharaja's Palace - About Us</title>
     <meta charset="UTF-8">
-    {commonStyles}
+    {{commonStyles}}
 </head>
 <body>
     <div class='container'>
         <header>
-            <h1>👑 Maharaja's Palace 👑</h1>
+            <h1>&#128081; Maharaja's Palace &#128081;</h1>
             <p class='tagline'>Authentic Indian Cuisine</p>
         </header>
-        {navBar}
+        {{navBar}}
         <div class='content'>
             <h2>About Us</h2>
             <p>Welcome to Maharaja's Palace, where we bring the authentic flavors of India to your table. Established in 2020, our restaurant has been serving traditional Indian cuisine with a modern touch.</p>
@@ -111,37 +113,37 @@ app.MapGet("/about", () => Results.Content($@"
     </div>
 </body>
 </html>
-", "text/html"));
+""", "text/html"));
 
-app.MapGet("/contact", () => Results.Content($@"
+app.MapGet("/contact", () => Results.Content($$"""
 <!DOCTYPE html>
 <html>
 <head>
     <title>Maharaja's Palace - Contact Us</title>
     <meta charset="UTF-8">
-    {commonStyles}
+    {{commonStyles}}
 </head>
 <body>
     <div class='container'>
         <header>
-            <h1>👑 Maharaja's Palace 👑</h1>
+            <h1>&#128081; Maharaja's Palace &#128081;</h1>
             <p class='tagline'>Authentic Indian Cuisine</p>
         </header>
-        {navBar}
+        {{navBar}}
         <div class='content'>
             <h2>Contact Us</h2>
             <div class='contact-info'>
-                <p><strong>📍 Address:</strong> Hyderabad, India</p>
-                <p><strong>📞 Phone:</strong> +91 9513184144</p>
-                <p><strong>📧 Email:</strong> info@spiceofindia.com</p>
-                <p><strong>🕒 Hours:</strong> 6am - 11pm IST</p>
+                <p><strong>&#128205; Address:</strong> Hyderabad, India</p>
+                <p><strong>&#128222; Phone:</strong> +91 9513184144</p>
+                <p><strong>&#128231; Email:</strong> info@spiceofindia.com</p>
+                <p><strong>&#128338; Hours:</strong> 6am - 11pm IST</p>
             </div>
             <p style='margin-top: 30px;'>We'd love to hear from you! Whether you have questions about our menu, want to make a reservation, or just want to share your feedback, feel free to reach out.</p>
         </div>
     </div>
 </body>
 </html>
-", "text/html"));
+""", "text/html"));
 
 app.MapGet("/api/menu", () => menu);
 
