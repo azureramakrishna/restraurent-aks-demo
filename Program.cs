@@ -53,13 +53,13 @@ app.MapGet("/", () => Results.Content($@"
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Spice of India - Menu</title>
+    <title>Maharaja's Palace - Menu</title>
     {commonStyles}
 </head>
 <body>
     <div class='container'>
         <header>
-            <h1>🍴 Spice of India</h1>
+            <h1>🪔 Maharaja's Palace 🪔</h1>
             <p class='tagline'>Authentic Indian Cuisine</p>
         </header>
         {navBar}
@@ -89,19 +89,19 @@ app.MapGet("/about", () => Results.Content($@"
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Spice of India - About Us</title>
+    <title>Maharaja's Palace - About Us</title>
     {commonStyles}
 </head>
 <body>
     <div class='container'>
         <header>
-            <h1>🍴 Spice of India</h1>
+            <h1>🪔 Maharaja's Palace 🪔</h1>
             <p class='tagline'>Authentic Indian Cuisine</p>
         </header>
         {navBar}
         <div class='content'>
             <h2>About Us</h2>
-            <p>Welcome to Spice of India, where we bring the authentic flavors of India to your table. Established in 2020, our restaurant has been serving traditional Indian cuisine with a modern touch.</p>
+            <p>Welcome to Maharaja's Palace, where we bring the authentic flavors of India to your table. Established in 2020, our restaurant has been serving traditional Indian cuisine with a modern touch.</p>
             <p>Our chefs are trained in the art of Indian cooking, using traditional recipes passed down through generations. We source the finest spices and ingredients to ensure every dish is bursting with authentic flavors.</p>
             <p>From the rich curries of North India to the aromatic biryanis of Hyderabad, we offer a diverse menu that celebrates the culinary heritage of India. Each dish is prepared with love and attention to detail.</p>
             <p>We believe in providing not just a meal, but an experience that transports you to the vibrant streets of India. Join us for a memorable dining experience!</p>
@@ -115,25 +115,23 @@ app.MapGet("/contact", () => Results.Content($@"
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Spice of India - Contact Us</title>
+    <title>Maharaja's Palace - Contact Us</title>
     {commonStyles}
 </head>
 <body>
     <div class='container'>
         <header>
-            <h1>🍴 Spice of India</h1>
+            <h1>🪔 Maharaja's Palace 🪔</h1>
             <p class='tagline'>Authentic Indian Cuisine</p>
         </header>
         {navBar}
         <div class='content'>
             <h2>Contact Us</h2>
             <div class='contact-info'>
-                <p><strong>📍 Address:</strong> 123 Curry Lane, Toronto, ON M5V 2T6, Canada</p>
-                <p><strong>📞 Phone:</strong> +1 (416) 555-0123</p>
+                <p><strong>📍 Address:</strong> Hyderabad, India</p>
+                <p><strong>📞 Phone:</strong> +91 9513184144</p>
                 <p><strong>📧 Email:</strong> info@spiceofindia.com</p>
-                <p><strong>🕒 Hours:</strong></p>
-                <p>Monday - Friday: 11:00 AM - 10:00 PM</p>
-                <p>Saturday - Sunday: 12:00 PM - 11:00 PM</p>
+                <p><strong>🕒 Hours:</strong> 6am - 11pm IST</p>
             </div>
             <p style='margin-top: 30px;'>We'd love to hear from you! Whether you have questions about our menu, want to make a reservation, or just want to share your feedback, feel free to reach out.</p>
         </div>

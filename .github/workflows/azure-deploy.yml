@@ -62,8 +62,17 @@ jobs:
     - name: Update manifest with image tag
       run: |
         sed -i 's|IMAGE_TAG|${{ needs.build.outputs.image-tag }}|g' k8s/deployment.yaml
+        cat k8s/deployment.yaml
     
     - name: Deploy to AKS
       run: kubectl apply -f k8s/deployment.yaml
+    
+    - name: Deployment Status
+      run: |
+        echo "✅ Deployment Successful!"
+        echo "Image: ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ needs.build.outputs.image-tag }}"
+        echo "Cluster: ${{ env.AKS_NAME }}"
+        kubectl get pods -l app=restaurant-app
+        kubectl get svc restaurant-app-service
 
 
