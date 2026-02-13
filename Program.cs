@@ -54,12 +54,13 @@ app.MapGet("/", () => Results.Content($@"
 <html>
 <head>
     <title>Maharaja's Palace - Menu</title>
+    <meta charset="UTF-8">
     {commonStyles}
 </head>
 <body>
     <div class='container'>
         <header>
-            <h1>🪔 Maharaja's Palace 🪔</h1>
+            <h1>👑 Maharaja's Palace 👑</h1>
             <p class='tagline'>Authentic Indian Cuisine</p>
         </header>
         {navBar}
@@ -90,12 +91,13 @@ app.MapGet("/about", () => Results.Content($@"
 <html>
 <head>
     <title>Maharaja's Palace - About Us</title>
+    <meta charset="UTF-8">
     {commonStyles}
 </head>
 <body>
     <div class='container'>
         <header>
-            <h1>🪔 Maharaja's Palace 🪔</h1>
+            <h1>👑 Maharaja's Palace 👑</h1>
             <p class='tagline'>Authentic Indian Cuisine</p>
         </header>
         {navBar}
@@ -116,12 +118,13 @@ app.MapGet("/contact", () => Results.Content($@"
 <html>
 <head>
     <title>Maharaja's Palace - Contact Us</title>
+    <meta charset="UTF-8">
     {commonStyles}
 </head>
 <body>
     <div class='container'>
         <header>
-            <h1>🪔 Maharaja's Palace 🪔</h1>
+            <h1>👑 Maharaja's Palace 👑</h1>
             <p class='tagline'>Authentic Indian Cuisine</p>
         </header>
         {navBar}
